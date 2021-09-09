@@ -1,0 +1,4 @@
+name: Jump
+version: ${project.version}
+main: de.spielepapagei.Main
+description: Jump Plugin for Bungeecord
