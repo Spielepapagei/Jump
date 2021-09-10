@@ -20,11 +20,22 @@ public class JumpCommand extends Command {
 
     @Override
     public void execute(CommandSender s, String[] args) {
-        if (ProxyServer.getInstance().getServers().containsKey(args[0]));
-        if ((s instanceof ProxiedPlayer)) {
-            ProxiedPlayer p = (ProxiedPlayer)s;
-            p.sendMessage(new ComponentBuilder("Connecting you to the lobby!").color(ChatColor.RED).create());
-            p.connect(ProxyServer.getInstance().getServerInfo(args[0]));
+        if(args.Lenght <= 1)
+        {
+            if (!ProxyServer.getInstance().getServers().containsKey(args[0]))
+            {
+                p.sendMessage(new ComponentBuilder("This server does not exist").color(ChatColor.RED).create());
+                return;
+            }
+            if ((s instanceof ProxiedPlayer)) {
+                ProxiedPlayer p = (ProxiedPlayer)s;
+                p.sendMessage(new ComponentBuilder("Connecting you to the lobby!").color(ChatColor.RED).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(args[0]));
+            }
+        }
+        else
+        {
+            p.sendMessage(new ComponentBuilder("Invalid syntax: Syntax: /jump <server>").color(ChatColor.RED).create());
         }
     }
 }
