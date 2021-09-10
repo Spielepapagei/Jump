@@ -15,11 +15,12 @@ public class JumpCommand extends Command {
     }
 
     public JumpCommand(Main main) {
-        super("jump","","join");
+        super("join","","");
     }
 
     @Override
     public void execute(CommandSender s, String[] args) {
+        if (ProxyServer.getInstance().getServers().containsKey(args[0]));
         if ((s instanceof ProxiedPlayer)) {
             ProxiedPlayer p = (ProxiedPlayer)s;
             p.sendMessage(new ComponentBuilder("Connecting you to the lobby!").color(ChatColor.RED).create());
