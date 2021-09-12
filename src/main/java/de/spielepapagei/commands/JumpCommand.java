@@ -28,7 +28,7 @@ public class JumpCommand extends Command {
                     p.sendMessage(new ComponentBuilder("This server does not exist").color(ChatColor.RED).create());
                     return;
                 }
-                p.sendMessage(new ComponentBuilder("Connecting you to the lobby!").color(ChatColor.RED).create());
+                p.sendMessage(new ComponentBuilder("Connecting you to " + args[0] + "...").color(ChatColor.GREEN).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(args[0]));
             }
             else
