@@ -1,6 +1,6 @@
 package de.spielepapagei.tcpSocket;
 
-import net.md_5.bungee.Util;
+import net.md_5.bungee.BungeeCord;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,13 +8,13 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 
-class SocketManager {
+public class SocketManager {
 
     static final HashMap<String, SocketClient> connectedSockets = new HashMap<>();
     static int ID = 0;
     private static ServerSocket serverSocket;
 
-    static void init(int port){
+    public static void init(int port){
         try {
             Util.log("Listening for socket connections on port "+port+"!");
             serverSocket = new ServerSocket(port);
@@ -36,7 +36,7 @@ class SocketManager {
         }
     }
 
-    static void end(){
+    public static void end(){
         try {
             if(!serverSocket.isClosed()) serverSocket.close();
             connectedSockets.values().forEach(s -> s.sendCommand(Command.EXIT));
@@ -47,7 +47,7 @@ class SocketManager {
 
     private static void initSocket(Socket socket){
         ID++;
-        Util.log("Socket connected! ID: "+ID);
+        de.spielepapagei.tcpSocket.Util.log("Socket connected! ID: "+ID);
         new SocketClient(socket);
     }
 

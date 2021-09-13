@@ -1,6 +1,6 @@
 package de.spielepapagei.tcpSocket;
 
-import me.redepicness.socketmessenger.api.Data;
+import de.spielepapagei.api.Data;
 import net.md_5.bungee.api.config.ServerInfo;
 
 /**
